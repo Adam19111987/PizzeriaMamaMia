@@ -1,0 +1,22 @@
+.imgfondo {
+  background-image: url(../assets/img/Header.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.contenedorHeader {
+  background-color: rgba(34, 34, 34, 0.75);
+  max-width: 1250px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedorCards{
+    max-width: 1250px;
+    border: solid 2px rgb(183, 240, 183);
+    padding: 10px;
+}

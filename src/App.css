@@ -1,0 +1,9 @@
+.contenedor {
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+  .footers{
+    height: 50px;
+    background-color: black;
+  }
