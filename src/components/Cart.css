@@ -1,0 +1,52 @@
+.contenedor-Cart {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 20px;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+
+  row-gap: 10px;
+}
+.listas {
+  display: flex;
+  list-style: none;
+   align-items: center;
+   font-weight: 600;
+
+  gap: 60px;
+}
+.contenedor-botones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+.botones {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.Total{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    ;
+}
+
+.boton{
+    background-color: black;
+    padding: 10px;
+    width: 200px;
+    color: white;
+    font-weight: bolder;
+}

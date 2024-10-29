@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/Home";
 import Navabarr from "./components/Navabarr";
 import Footer from "./components/Footer";
+import Cart from "./components/Cart";
 import FormularioRegistro from "./components/FormularioRegistro";
 
 import Formulario from "./components/Formulario";
@@ -18,10 +19,11 @@ function App() {
         </nav>
         <header>
           {/* <Home /> */}
-          <FormularioRegistro/>
+          {/* <FormularioRegistro/> */}
           {/* <Formulario /> */}
+          <Cart/>
         </header>
-
+          
         <footer className="footers mt-4 p-3 mb-4">
           <Footer />
         </footer>

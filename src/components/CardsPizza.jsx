@@ -2,8 +2,9 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import "./CardsPizza.css";
 import Button from "react-bootstrap/Button";
+import PropTypes from "prop-types";
 
-function CardsPizza({ name, price, ingredients, img }) {
+function CardsPizza({ name, price, ingredients, img, id }) {
   return (
     <Card style={{ width: "23rem" }}>
       <Card.Img variant="top" src={img} />
@@ -11,9 +12,13 @@ function CardsPizza({ name, price, ingredients, img }) {
         <h4 className="fw-bold">{name}</h4>
       </Card.Body>
       <ListGroup className="list-group-flush">
-        <Card.Body className="text-center fw-light">
+        <Card.Body className=" d-flex fw-light flex-column align-items-center">
           <h5>Ingredientes</h5>
-          <p className="ingredientes"> 🍕 {ingredients.join(", ")}</p>
+          <ul className="ingredientes">
+            {ingredients.map((ingredient) => (
+              <li key={id}>{ingredient} </li>
+            ))}
+          </ul>
         </Card.Body>
       </ListGroup>
       <Card.Body>
@@ -28,5 +33,13 @@ function CardsPizza({ name, price, ingredients, img }) {
     </Card>
   );
 }
+
+CardsPizza.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
+  img: PropTypes.string.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+};
 
 export default CardsPizza;
