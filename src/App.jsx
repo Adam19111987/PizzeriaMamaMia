@@ -18,10 +18,10 @@ function App() {
           <Navabarr />
         </nav>
         <header>
-          {/* <Home /> */}
+          <Home />
           {/* <FormularioRegistro/> */}
           {/* <Formulario /> */}
-          <Cart/>
+          {/* <Cart/> */}
         </header>
           
         <footer className="footers mt-4 p-3 mb-4">

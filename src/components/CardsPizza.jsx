@@ -6,8 +6,8 @@ import PropTypes from "prop-types";
 
 function CardsPizza({ name, price, ingredients, img, id }) {
   return (
-    <Card style={{ width: "23rem" }}>
-      <Card.Img variant="top" src={img} />
+    <Card style={{ width: "24rem" }}>
+      <Card.Img  className = "imagenes" variant="top" src={img} />
       <Card.Body>
         <h4 className="fw-bold">{name}</h4>
       </Card.Body>

@@ -1,11 +1,30 @@
 import Header from "./Header";
 import CardsPizza from "./CardsPizza";
 import "./Home.css";
-import { useState } from "react";
-import { pizzas } from "../Pizza";
+import { useState, useEffect } from "react";
+// import { pizzas } from "../Pizza";
 
 function Home() {
-  const [listpizzas, setListPizzas] = useState(pizzas)
+  const [listpizzas, setListPizzas] = useState([])
+
+  // funcion llamar API
+
+  const callAPI = async () => {
+    try {
+     const url = "http://localhost:5000/api/pizzas";
+     const response = await fetch(url);
+     const data = await response.json()
+     setListPizzas(data)
+    }
+catch{
+  
+   alert("ocurrio un error")
+}
+  }
+
+  useEffect(() => {
+    callAPI()
+  }, [])
 
 
   return (
