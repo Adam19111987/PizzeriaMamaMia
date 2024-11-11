@@ -1,5 +1,5 @@
-import Header from "./Header";
-import CardsPizza from "./CardsPizza";
+import Header from "../components/Header";
+import CardsPizza from "../components/CardsPizza";
 import "./Home.css";
 import { useState, useEffect } from "react";
 // import { pizzas } from "../Pizza";
@@ -15,8 +15,7 @@ function Home() {
       const response = await fetch(url);
       const data = await response.json();
       setListPizzas(data);
-    } 
-    catch(e)  {
+    } catch (e) {
       alert(e.message);
     }
   };
