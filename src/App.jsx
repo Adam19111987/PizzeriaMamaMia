@@ -10,6 +10,7 @@ import NotFound from "./views/NotFound";
 import Formulario from "./views/Formulario";
 
 import "./App.css";
+import Pizza from "./views/Pizza";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/Profile" element={<Profile />} />
 
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/pizza/p001" element={<Pizza/>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </header>
