@@ -5,7 +5,10 @@ import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-function CardsPizza({ name, price, ingredients, img, id }) {
+
+
+function CardsPizza({ name, price, ingredients, img, id, onAddToCart }) {
+ 
   return (
     <Card style={{ width: "24rem" }}>
       <Card.Img className="imagenes" variant="top" src={img} />
@@ -30,7 +33,9 @@ function CardsPizza({ name, price, ingredients, img, id }) {
               Ver más 👀
             </Button>{" "}
           </Link>
-          <Button variant="dark">🛒 Añadir</Button>
+          <Button variant="dark" onClick={() => onAddToCart(id)}>
+            🛒 Añadir
+          </Button>
         </div>
       </Card.Body>
     </Card>
@@ -43,6 +48,7 @@ CardsPizza.propTypes = {
   ingredients: PropTypes.arrayOf(PropTypes.string).isRequired,
   img: PropTypes.string.isRequired,
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  onAddToCart: PropTypes.func.isRequired
 };
 
 export default CardsPizza;

@@ -1,30 +1,15 @@
-import { pizzas } from "../Pizza";
-import { useState } from "react";
+    
+
 import "./Cart.css";
 import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
+import { CartContext } from "../context/CartContexst";
+import { useContext } from "react";
 
 function Cart() {
-  const [renders, setRenders] = useState(
-    pizzas.map((pizza) => ({ ...pizza, cantidad: 1 })).slice(0, 3)
-  );
+  const{carts, incrementardecrementar, formatoTotal } = useContext(CartContext);
 
-  const incrementardecrementar = (id, dess) => {
-    setRenders((prevRenders) =>
-      prevRenders
-        .map((render) =>
-          render.id === id
-            ? { ...render, cantidad: Math.max(0, render.cantidad + dess) }
-            : render
-        )
-        .filter((render) => render.cantidad > 0)
-    );
-  };
-  const sumaTotal = renders.reduce(
-    (sum, render) => sum + render.price * render.cantidad,
-    0
-  );
-  const formatoTotal = sumaTotal.toLocaleString("es-Es");
+
 
   const pagoRealizado = () => {
     Swal.fire({
@@ -40,7 +25,7 @@ function Cart() {
       <h2>Detalles del pedido:</h2>
       <div className="contenedor-Cart">
         <ul>
-          {renders.map((render) => (
+          {carts.map((render) => (
             <li key={render.id} className="listas">
               <img src={render.img} alt={render.name} />
               <p>{render.name}</p>

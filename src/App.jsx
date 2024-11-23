@@ -9,12 +9,14 @@ import FormularioRegistro from "./views/FormularioRegistro";
 import NotFound from "./views/NotFound";
 import Formulario from "./views/Formulario";
 
+
 import "./App.css";
 import Pizza from "./views/Pizza";
-
+import CartProvider from "./context/CartContexst"
 function App() {
   return (
     <>
+    <CartProvider>
       <div className="contenedor">
         <nav>
           <Navabarr />
@@ -37,6 +39,7 @@ function App() {
           <Footer />
         </footer>
       </div>
+      </CartProvider>
     </>
   );
 }

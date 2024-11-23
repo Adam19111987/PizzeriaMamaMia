@@ -1,11 +1,14 @@
 import Button from "react-bootstrap/Button";
 import "./Navabarr.css";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContexst";
+import { useContext } from "react";
 
 function Navabarr() {
-  const total = 25000;
+  const { carts, incrementardecrementar, formatoTotal } =
+    useContext(CartContext);
+  const total = formatoTotal;
   const token = false;
-  const numeroFormate = total.toLocaleString("es-ES");
 
   return (
     <>
@@ -40,7 +43,7 @@ function Navabarr() {
         <div className="botonTotal me-5">
           <Button variant="outline-primary">
             <Link to="/Cart" className=" p-2 text-decoration-none compra">
-              🛒 Total: ${numeroFormate}
+              🛒 Total: ${total}
             </Link>{" "}
           </Button>
         </div>
