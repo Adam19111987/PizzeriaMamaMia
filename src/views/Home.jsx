@@ -8,7 +8,7 @@ import { CartContext } from "../context/CartContexst";
 
 function Home() {
   const [listpizzas, setListPizzas] = useState([]);
-  const {incrementardecrementar} = useContext(CartContext);
+  const { incrementardecrementar } = useContext(CartContext);
   // funcion llamar API
 
   const callAPI = async () => {
@@ -25,10 +25,10 @@ function Home() {
   useEffect(() => {
     callAPI();
   }, []);
-
-  const handleAddToCart = (id) => {
-    incrementardecrementar(id, 1); 
-  }
+  const handleAddToCart = (id, name, price, img) => {
+    const pizza = { id, name, price, img, cantidad: 1 };
+    incrementardecrementar(pizza, 1);
+  };
 
   return (
     <>
@@ -48,7 +48,7 @@ function Home() {
             price={pizza.price}
             ingredients={pizza.ingredients}
             img={pizza.img}
-            onAddToCart={handleAddToCart}
+            onAddToCart={() => handleAddToCart(pizza)}
           />
         ))}
       </div>

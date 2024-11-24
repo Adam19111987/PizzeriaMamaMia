@@ -34,7 +34,7 @@ function CardsPizza({ name, price, ingredients, img, id, onAddToCart }) {
               Ver más 👀
             </Button>{" "}
           </Link>
-          <Button variant="dark" onClick={() => onAddToCart(id)}>
+          <Button variant="dark" onClick={onAddToCart}>
             🛒 Añadir
           </Button>
         </div>

@@ -25,23 +25,23 @@ function Cart() {
       <h2>Detalles del pedido:</h2>
       <div className="contenedor-Cart">
         <ul>
-          {carts.map((render) => (
-            <li key={render.id} className="listas">
-              <img src={render.img} alt={render.name} />
-              <p>{render.name}</p>
+          {carts.map((item) => (
+            <li key={item.id} className="listas">
+              <img src={item.img} alt={item.name} />
+              <p>{item.name}</p>
               <div className="contenedor-botones">
-                <p>Precio: ${render.price * render.cantidad}</p>
+                <p>Precio: ${item.price * item.cantidad}</p>
                 <div className="botones">
                   <Button
                     variant="outline-primary"
-                    onClick={() => incrementardecrementar(render.id, 1)}
+                    onClick={() => incrementardecrementar(item.id, 1)}
                   >
                     +
                   </Button>
-                  <p>{render.cantidad}</p>
+                  <p>{item.cantidad}</p>
                   <Button
                     variant="outline-secondary"
-                    onClick={() => incrementardecrementar(render.id, -1)}
+                    onClick={() => incrementardecrementar(item.id, -1)}
                   >
                     -
                   </Button>
