@@ -8,7 +8,7 @@ import { CartContext } from "../context/CartContexst";
 
 function Home() {
   const [listpizzas, setListPizzas] = useState([]);
-  const { incrementardecrementar,formatoTotal } = useContext(CartContext);
+  const {incrementardecrementar} = useContext(CartContext);
   // funcion llamar API
 
   const callAPI = async () => {
@@ -27,10 +27,8 @@ function Home() {
   }, []);
 
   const handleAddToCart = (id) => {
-    console.log(`presionar : ${id} `);
-    incrementardecrementar(id, 1);
-    formatoTotal()
-  };
+    incrementardecrementar(id, 1); 
+  }
 
   return (
     <>

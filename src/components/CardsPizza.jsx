@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 
 function CardsPizza({ name, price, ingredients, img, id, onAddToCart }) {
  
+ 
   return (
     <Card style={{ width: "24rem" }}>
       <Card.Img className="imagenes" variant="top" src={img} />
