@@ -48,6 +48,8 @@ function Home() {
             price={pizza.price}
             ingredients={pizza.ingredients}
             img={pizza.img}
+            id = {pizza.id}
+            isActive = {true}
             onAddToCart={() => handleAddToCart(pizza)}
           />
         ))}

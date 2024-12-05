@@ -30,7 +30,7 @@ function App() {
             <Route path="/Profile" element={<Profile />} />
 
             <Route path="/Cart" element={<Cart />} />
-            <Route path="/pizza/p001" element={<Pizza/>} />
+            <Route path="/pizza/:id" element={<Pizza/>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </header>

@@ -1,12 +1,15 @@
 import CardsPizza from "../components/CardsPizza";
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
+import { useParams } from "react-router-dom";
 
 function Pizza() {
-  const [listpizzas, setListPizzas] = useState([]);
+  const [listpizzas, setListPizzas] = useState({});
+  const {id} = useParams();
+
   const callAPI = async () => {
     try {
-      const url = "http://localhost:5000/api/pizzas";
+      const url = `http://localhost:5000/api/pizzas/${id}`;
       const response = await fetch(url);
       const data = await response.json();
       setListPizzas(data);
@@ -28,17 +31,17 @@ function Pizza() {
         </div>
       </div>
       <div className="contenedorCards d-flex flex-wrap gap-4 justify-content-center mt-5">
-        {listpizzas
-          .map((pizza) => (
-            <CardsPizza
-              key={pizza.id}
-              name={pizza.name}
-              price={pizza.price}
-              ingredients={pizza.ingredients}
-              img={pizza.img}
+        {Object.keys(listpizzas).length > 0 &&
+          ( <CardsPizza
+              key={listpizzas.id}
+              desc ={listpizzas.desc}
+              name={listpizzas.name}
+              price={listpizzas.price}
+              ingredients={listpizzas.ingredients}
+              img={listpizzas.img}
+              isActive = {false}
             />
-          ))
-          .slice(0, 1)}
+          )}
       </div>
     </>
   );
