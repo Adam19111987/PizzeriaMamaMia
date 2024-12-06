@@ -7,7 +7,7 @@ import { CartContext } from "../context/CartContexst";
 import { useContext } from "react";
 
 function Cart() {
-  const{carts, incrementardecrementar, formatoTotal } = useContext(CartContext);
+  const{carts, increment, decrement, formattedTotal } = useContext(CartContext);
 
 
 
@@ -34,14 +34,14 @@ function Cart() {
                 <div className="botones">
                   <Button
                     variant="outline-primary"
-                    onClick={() => incrementardecrementar(item.id, 1)}
+                    onClick={() =>increment(item.id, 1)}
                   >
                     +
                   </Button>
                   <p>{item.cantidad}</p>
                   <Button
                     variant="outline-secondary"
-                    onClick={() => incrementardecrementar(item.id, -1)}
+                    onClick={() => decrement(item.id, 1)}
                   >
                     -
                   </Button>
@@ -52,7 +52,7 @@ function Cart() {
         </ul>
       </div>
       <div className="Total">
-        <h3> Total :${formatoTotal}</h3>
+        <h3> Total :${formattedTotal}</h3>
         <button onClick={() => pagoRealizado()} className="boton">
           Pagar
         </button>

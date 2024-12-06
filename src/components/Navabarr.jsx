@@ -5,9 +5,9 @@ import { CartContext } from "../context/CartContexst";
 import { useContext } from "react";
 
 function Navabarr() {
-  const { carts, incrementardecrementar, formatoTotal } =
+  const { formattedTotal } =
     useContext(CartContext);
-  const total = formatoTotal;
+  const total = formattedTotal;
   const token = false;
 
   return (

@@ -4,12 +4,17 @@ import "./CardsPizza.css";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../context/CartContexst";
+import { useContext } from "react";
 
 
-
-function CardsPizza({ name, price, ingredients, img, id, desc = null, isActive }) {
+function CardsPizza({ name, price, ingredients, img, id, desc = null, isActive,  }) {
   const navigate = useNavigate()
-
+  const {addItemToCart} = useContext(CartContext)
+  const addPizzasCards = () => {
+    const newPizza = { id, name, price, img }; 
+    addItemToCart(newPizza); 
+  };
   return (
     <Card style={{ width: "24rem" }}>
       <Card.Img className="imagenes" variant="top" src={img} />
@@ -42,7 +47,7 @@ function CardsPizza({ name, price, ingredients, img, id, desc = null, isActive }
             Ver más 👀
           </Button> : null}{" "}
             
-          <Button variant="dark">
+          <Button variant="dark" onClick={addPizzasCards}>
             🛒 Añadir
           </Button>
         </div>
