@@ -3,12 +3,12 @@ import CardsPizza from "../components/CardsPizza";
 import "./Home.css";
 import { useState, useEffect } from "react";
 // import { pizzas } from "../Pizza";
-import { useContext } from "react";
-import { CartContext } from "../context/CartContexst";
+
+
 
 function Home() {
   const [listpizzas, setListPizzas] = useState([]);
-  const { incrementardecrementar } = useContext(CartContext);
+
   // funcion llamar API
 
   const callAPI = async () => {
@@ -25,10 +25,7 @@ function Home() {
   useEffect(() => {
     callAPI();
   }, []);
-  const handleAddToCart = (id, name, price, img) => {
-    const pizza = { id, name, price, img, cantidad: 1 };
-    incrementardecrementar(pizza, 1);
-  };
+
 
   return (
     <>
@@ -50,7 +47,7 @@ function Home() {
             img={pizza.img}
             id = {pizza.id}
             isActive = {true}
-            onAddToCart={() => handleAddToCart(pizza)}
+            
           />
         ))}
       </div>
