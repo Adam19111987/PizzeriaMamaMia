@@ -5,10 +5,11 @@ import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
 import { CartContext } from "../context/CartContexst";
 import { useContext } from "react";
+import { PassContext } from "../context/PassContext";
 
 function Cart() {
   const{carts, increment, decrement, formattedTotal } = useContext(CartContext);
-
+  const { token } = useContext(PassContext);
 
 
   const pagoRealizado = () => {
@@ -53,7 +54,7 @@ function Cart() {
       </div>
       <div className="Total">
         <h3> Total :${formattedTotal}</h3>
-        <button onClick={() => pagoRealizado()} className="boton">
+        <button onClick={() => pagoRealizado()} className="boton" disabled = {!token}>
           Pagar
         </button>
       </div>

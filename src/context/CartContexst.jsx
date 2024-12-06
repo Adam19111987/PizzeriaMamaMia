@@ -6,7 +6,7 @@ export const CartContext = createContext();
 const CartProvider = ({ children }) => {
 
   const [carts, setCarts] = useState(
-    pizzas.map((pizza) => ({ ...pizza, cantidad: 1 })).slice(0, 3)
+    pizzas.map((pizza) => ({ ...pizza, cantidad: 1 })).slice(0, 1)
   );
 
 

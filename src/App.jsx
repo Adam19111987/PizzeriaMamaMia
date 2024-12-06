@@ -8,15 +8,20 @@ import Profile from "./views/Profile";
 import FormularioRegistro from "./views/FormularioRegistro";
 import NotFound from "./views/NotFound";
 import Formulario from "./views/Formulario";
+import { BrowserRouter, Navigate } from 'react-router-dom'
 
 
 import "./App.css";
 import Pizza from "./views/Pizza";
 import CartProvider from "./context/CartContexst"
+import { PassContext } from "./context/PassContext";
+import { useContext } from "react";
 function App() {
+  const { token } = useContext(PassContext)
   return (
     <>
     <CartProvider>
+    <BrowserRouter>
       <div className="contenedor">
         <nav>
           <Navabarr />
@@ -25,9 +30,9 @@ function App() {
         <header>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Registrer" element={<FormularioRegistro />} />
-            <Route path="/Login" element={<Formulario />} />
-            <Route path="/Profile" element={<Profile />} />
+            <Route path="/Registrer" element={!token ?<FormularioRegistro /> : <Navigate to="/"/> } />
+            <Route path="/Login" element={ !token ? <Formulario /> : <Navigate to="/"/>} />
+            <Route path="/Profile" element={token ? <Profile /> : <Navigate to="/login" />} />
 
             <Route path="/Cart" element={<Cart />} />
             <Route path="/pizza/:id" element={<Pizza/>} />
@@ -39,6 +44,7 @@ function App() {
           <Footer />
         </footer>
       </div>
+      </BrowserRouter>
       </CartProvider>
     </>
   );

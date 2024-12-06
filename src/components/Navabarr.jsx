@@ -1,50 +1,67 @@
 import Button from "react-bootstrap/Button";
 import "./Navabarr.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CartContext } from "../context/CartContexst";
 import { useContext } from "react";
+import { PassContext } from "../context/PassContext";
+import { useNavigate } from "react-router-dom";
 
 function Navabarr() {
-  const { formattedTotal } =
-    useContext(CartContext);
+  const { formattedTotal } = useContext(CartContext);
+  const { token, logout } = useContext(PassContext);
+  const Navigate = useNavigate();
   const total = formattedTotal;
-  const token = false;
+  const activeClass = ({ isActive }) =>
+    isActive
+      ? "text-warning mt-2 pe-2 text-decoration-none"
+      : "text-white mt-2 pe-2 text-decoration-none";
+
+  const handleLogout = () => {
+    logout();
+    Navigate("/Logout");
+  };
 
   return (
     <>
       <div className="contenedorNav d-flex justify-content-between">
         <div className="d-flex gap-4">
+          <Link to = "/" className="text-decoration-none">
           <h3 className="tituloNav">Pizzería Mamma Mia!</h3>
-          <Link to="/" className=" p-2 text-decoration-none links">
-            🍕 Home
           </Link>
+          <NavLink to="/" className={activeClass}>
+            🍕 Home
+          </NavLink>
 
           {token ? (
             <>
-              <Link to="/Profile" className=" p-2 text-decoration-none links">
+              <NavLink
+                to="/Profile"
+                className={activeClass}
+               
+              >
                 🔓 Profile
-              </Link>
-              <Link to="/Logout" className=" p-2 text-decoration-none links">
+              </NavLink>
+              <NavLink to="/Logout" className={activeClass}  onClick={handleLogout}>
                 🔒 Logout
-              </Link>
+              </NavLink>
             </>
           ) : (
             <>
-              <Link to="/Login" className=" p-2 text-decoration-none links">
+              <NavLink to="/Login" className={activeClass}>
                 🔒 Login
-              </Link>
-              <Link to="/Registrer" className=" p-2 text-decoration-none links">
+              </NavLink>
+              <NavLink to="/Registrer" className={activeClass}>
                 🔒 Registrer
-              </Link>
+              </NavLink>
             </>
           )}
         </div>
 
         <div className="botonTotal me-5">
           <Button variant="outline-primary">
-            <Link to="/Cart" className=" p-2 text-decoration-none compra">
+            <NavLink to="/Cart" className={activeClass}>
               🛒 Total: ${total}
-            </Link>{" "}
+            </NavLink>{" "}
           </Button>
         </div>
       </div>
