@@ -7,7 +7,7 @@ import Cart from "./views/Cart";
 import Profile from "./views/Profile";
 import FormularioRegistro from "./views/FormularioRegistro";
 import NotFound from "./views/NotFound";
-import Formulario from "./views/Formulario";
+import Login from "./views/Login";
 import { BrowserRouter, Navigate } from 'react-router-dom'
 
 
@@ -31,7 +31,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/Registrer" element={!token ?<FormularioRegistro /> : <Navigate to="/"/> } />
-            <Route path="/Login" element={ !token ? <Formulario /> : <Navigate to="/"/>} />
+            <Route path="/Login" element={ !token ? <Login/> : <Navigate to="/"/>} />
             <Route path="/Profile" element={token ? <Profile /> : <Navigate to="/login" />} />
 
             <Route path="/Cart" element={<Cart />} />
